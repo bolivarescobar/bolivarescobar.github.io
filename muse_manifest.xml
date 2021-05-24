@@ -1,0 +1,147 @@
+<manifest alg="2" build="2017.0.1.363" opt="false" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster" exportTarget="other" domain="www.vintevertices.com" resolutions="1x" timestamp="1511120442574">
+  <folder name="css">
+    <file name="site_global.css" crc="443350757"/>
+    <file name="index.css" crc="4156277009" ref="index"/>
+    <file name="iefonts_index.css" crc="4017755520" ref="index"/>
+    <file name="clube-do-panetone.css" crc="21710787" ref="clube-do-panetone"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="phone>index:phone>clube-do-panetone:tablet>index:tablet>clube-do-panetone:index:clube-do-panetone"/>
+    <file name="museutils.js" crc="4148063285" ref="phone>index:phone>clube-do-panetone:tablet>index:tablet>clube-do-panetone:index:clube-do-panetone"/>
+    <file name="whatinput.js" crc="86476730" ref="phone>index:phone>clube-do-panetone:tablet>index:tablet>clube-do-panetone:index:clube-do-panetone"/>
+    <file name="museconfig.js" crc="172512987" ref="phone>index:phone>clube-do-panetone:tablet>index:tablet>clube-do-panetone:index:clube-do-panetone"/>
+    <file name="jquery.musepolyfill.bgsize.js" crc="4001026563" ref="phone>index:tablet>index:index"/>
+    <file name="webpro.js" crc="3986320349" ref="phone>index:tablet>index:index"/>
+    <file name="musewpslideshow.js" crc="405464237" ref="phone>index:tablet>index:index"/>
+    <file name="jquery.museoverlay.js" crc="305414130" ref="phone>index:tablet>index:index"/>
+    <file name="touchswipe.js" crc="221459597" ref="phone>index:tablet>index:index"/>
+    <file name="musewpdisclosure.js" crc="3865010892" ref="phone>index:tablet>index:index"/>
+    <file name="jquery.watch.js" crc="437028206" ref="phone>index:phone>clube-do-panetone:tablet>index:tablet>clube-do-panetone:index:clube-do-panetone"/>
+    <file name="require.js" crc="4159430777" ref="phone>index:phone>clube-do-panetone:tablet>index:tablet>clube-do-panetone:index:clube-do-panetone"/>
+  </folder>
+  <folder name="images">
+    <file name="home-favicon.ico" crc="4038422802" ref="phone>index"/>
+    <file name="dodecaedro_3.gif" crc="419389612" seo="true" ref="phone>index:tablet>index:index"/>
+    <file name="u1996-4.png" crc="270426825" ref="phone>index"/>
+    <file name="botao_about_merged-u2073-3-fr.jpg" crc="4047037169" ref="phone>index"/>
+    <file name="botao_about_merged-u2073-3-r-fr.jpg" crc="4214139947" ref="phone>index"/>
+    <file name="botao_about_merged-u2073-3-m-fr.jpg" crc="3809658308" ref="phone>index"/>
+    <file name="botao_about_merged-u2073-3-a-fr.jpg" crc="36393086" ref="phone>index"/>
+    <file name="fb-fb_pb.png" crc="408867690" ref="phone>index:tablet>index:index"/>
+    <file name="fb-layer 0.png" crc="4126065882" ref="phone>index:tablet>index:index"/>
+    <file name="twitter-layer 0.png" crc="33497679" ref="phone>index:tablet>index:index"/>
+    <file name="twitter-twitter_color.png" crc="3961449154" ref="phone>index:tablet>index:index"/>
+    <file name="gmail-layer 0.png" crc="4115003566" ref="phone>index:tablet>index:index"/>
+    <file name="gmail-gmail.png" crc="4111261770" ref="phone>index:tablet>index:index"/>
+    <file name="botao_portfolio_merged-u2002-3-fr.jpg" crc="401202696" ref="phone>index"/>
+    <file name="botao_portfolio_merged-u2002-3-r-fr.jpg" crc="4268445633" ref="phone>index"/>
+    <file name="botao_portfolio_merged-u2002-3-m-fr.jpg" crc="200296290" ref="phone>index"/>
+    <file name="botao_portfolio_merged-u2002-3-a-fr.jpg" crc="519065254" ref="phone>index"/>
+    <file name="title303x189.jpg" crc="4017161739" seo="true" ref="phone>index"/>
+    <file name="blank.gif" crc="4208392903" ref="phone>index:tablet>index:index"/>
+    <file name="pet256x203.jpg" crc="453939899" seo="true" ref="phone>index"/>
+    <file name="think1331x164.jpg" crc="4279119014" seo="true" ref="phone>index"/>
+    <file name="gazin295x189.jpg" crc="305535741" seo="true" ref="phone>index"/>
+    <file name="lidera277x184.jpg" crc="273595977" seo="true" ref="phone>index"/>
+    <file name="video335x198.jpg" crc="126175152" seo="true" ref="phone>index"/>
+    <file name="10ap323x192.jpg" crc="4120552575" seo="true" ref="phone>index"/>
+    <file name="infum318x188.jpg" crc="4279517942" seo="true" ref="phone>index"/>
+    <file name="esquerda2-01.png" crc="4202340133" ref="phone>index:tablet>index:index"/>
+    <file name="esquerda_down2-01.png" crc="484998764" ref="phone>index:tablet>index:index"/>
+    <file name="esquerda_press.png" crc="4051216845" ref="phone>index:tablet>index:index"/>
+    <file name="direita2-01.png" crc="139213210" ref="phone>index:tablet>index:index"/>
+    <file name="direita_down222222-01.png" crc="297617427" ref="phone>index:tablet>index:index"/>
+    <file name="direita_press.png" crc="3871399404" ref="phone>index:tablet>index:index"/>
+    <file name="loading.gif" crc="3815509949" ref="phone>index:tablet>index:index"/>
+    <file name="botao_ilustrações_merged-u2075-3-fr.jpg" crc="4270469610" ref="phone>index"/>
+    <file name="botao_ilustrações_merged-u2075-3-r-fr.jpg" crc="73420237" ref="phone>index"/>
+    <file name="botao_ilustrações_merged-u2075-3-m-fr.jpg" crc="3908060213" ref="phone>index"/>
+    <file name="botao_ilustrações_merged-u2075-3-a-fr.jpg" crc="4244234009" ref="phone>index"/>
+    <file name="botao_textos_merged-u2056-3-fr.jpg" crc="440969037" ref="phone>index"/>
+    <file name="botao_textos_merged-u2056-3-r-fr.jpg" crc="3909681166" ref="phone>index"/>
+    <file name="botao_textos_merged-u2056-3-m-fr.jpg" crc="3870991458" ref="phone>index"/>
+    <file name="botao_textos_merged-u2056-3-a-fr.jpg" crc="151611602" ref="phone>index"/>
+    <file name="medium.png" crc="3997256117" seo="true" ref="phone>index:tablet>index:index"/>
+    <file name="solo.png" crc="175261481" seo="true" ref="phone>index:tablet>index"/>
+    <file name="filo.png" crc="293571761" seo="true" ref="phone>index:tablet>index:index"/>
+    <file name="botao_clube_merged-u1999-fr.jpg" crc="4257077055" ref="phone>index"/>
+    <file name="botao_clube_merged-u1999-r-fr.jpg" crc="4272286736" ref="phone>index"/>
+    <file name="botao_clube_merged-u1999-m-fr.jpg" crc="381489335" ref="phone>index"/>
+    <file name="favicon.ico" crc="4038422802" ref="phone>clube-do-panetone"/>
+    <file name="panetone_firulas-02.png" crc="4256204225" seo="true" ref="phone>clube-do-panetone:tablet>clube-do-panetone:clube-do-panetone"/>
+    <file name="panetone.png" crc="140471437" seo="true" ref="phone>clube-do-panetone:tablet>clube-do-panetone:clube-do-panetone"/>
+    <file name="u2257-4.png" crc="3984604957" ref="phone>clube-do-panetone"/>
+    <file name="jojoquivers.png" crc="4071107902" seo="true" ref="phone>clube-do-panetone:tablet>clube-do-panetone:clube-do-panetone"/>
+    <file name="dias.png" crc="4045277498" seo="true" ref="phone>clube-do-panetone:tablet>clube-do-panetone"/>
+    <file name="dabliu.jpg" crc="3862565708" seo="true" ref="phone>clube-do-panetone:tablet>clube-do-panetone"/>
+    <file name="roberyo.jpg" crc="4288016488" seo="true" ref="phone>clube-do-panetone:tablet>clube-do-panetone:clube-do-panetone"/>
+    <file name="triangulo-04.png" crc="60304332" seo="true" ref="phone>clube-do-panetone:tablet>clube-do-panetone:clube-do-panetone"/>
+    <file name="u1764-4.png" crc="4035186516" ref="tablet>index"/>
+    <file name="botao_about_merged.jpg" crc="302799987" ref="tablet>index:index"/>
+    <file name="botao_about_merged-hover.jpg" crc="394899180" ref="tablet>index:index"/>
+    <file name="botao_about_merged-action.jpg" crc="507302470" ref="tablet>index:index"/>
+    <file name="botao_about_merged-active.jpg" crc="4050110273" ref="tablet>index:index"/>
+    <file name="botao_portfolio_merged-idle.jpg" crc="465343160" ref="tablet>index:index"/>
+    <file name="botao_portfolio_merged-hover.jpg" crc="3930566562" ref="tablet>index:index"/>
+    <file name="botao_portfolio_merged-action.jpg" crc="263698469" ref="tablet>index:index"/>
+    <file name="botao_portfolio_merged-active.jpg" crc="340318151" ref="tablet>index:index"/>
+    <file name="title.jpg" crc="123462024" seo="true" ref="tablet>index:index"/>
+    <file name="pet.jpg" crc="4133213292" seo="true" ref="tablet>index:index"/>
+    <file name="think1.jpg" crc="437121529" seo="true" ref="tablet>index:index"/>
+    <file name="gazin.jpg" crc="165819190" seo="true" ref="tablet>index:index"/>
+    <file name="lidera.jpg" crc="4111465474" seo="true" ref="tablet>index:index"/>
+    <file name="video.jpg" crc="500244994" seo="true" ref="tablet>index:index"/>
+    <file name="10ap.jpg" crc="501294087" seo="true" ref="tablet>index:index"/>
+    <file name="infum.jpg" crc="97622828" seo="true" ref="tablet>index:index"/>
+    <file name="botao_ilustrações_merged-idle.jpg" crc="241294801" ref="tablet>index:index"/>
+    <file name="botao_ilustrações_merged-hover.jpg" crc="301779369" ref="tablet>index:index"/>
+    <file name="botao_ilustrações_merged-action.jpg" crc="4015379230" ref="tablet>index:index"/>
+    <file name="botao_ilustrações_merged-active.jpg" crc="3885921598" ref="tablet>index:index"/>
+    <file name="botao_textos_merged-idle.jpg" crc="4083598786" ref="tablet>index:index"/>
+    <file name="botao_textos_merged-hover.jpg" crc="3799120451" ref="tablet>index:index"/>
+    <file name="botao_textos_merged-action.jpg" crc="3803415676" ref="tablet>index:index"/>
+    <file name="botao_textos_merged-active.jpg" crc="166712292" ref="tablet>index:index"/>
+    <file name="botao_clube_merged-idle.jpg" crc="12674762" ref="tablet>index:index"/>
+    <file name="botao_clube_merged-hover.jpg" crc="291381037" ref="tablet>index:index"/>
+    <file name="botao_clube_merged-action.jpg" crc="55281983" ref="tablet>index:index"/>
+    <file name="u1934-4.png" crc="4168215913" ref="tablet>clube-do-panetone"/>
+    <file name="u556-4.png" crc="63081772" ref="index"/>
+    <file name="insta-insta_pb.png" crc="3774677561" ref="index"/>
+    <file name="insta-insta_color.png" crc="95419139" ref="index"/>
+    <file name="artindep.jpg" crc="4001059588" seo="true" ref="index"/>
+    <file name="tempero.jpg" crc="260037320" seo="true" ref="index"/>
+    <file name="dalle.jpg" crc="4198298937" seo="true" ref="index"/>
+    <file name="comer.jpg" crc="531635810" seo="true" ref="index"/>
+    <file name="labdsi.jpg" crc="407733811" seo="true" ref="index"/>
+    <file name="viravira.jpg" crc="96922743" seo="true" ref="index"/>
+    <file name="ebooks.jpg" crc="3989215862" seo="true" ref="index"/>
+    <file name="lattes.png" crc="218243929" seo="true" ref="index"/>
+    <file name="dabliu.png" crc="168473932" seo="true" ref="clube-do-panetone"/>
+    <file name="mallard.png" crc="4077432533" seo="true" ref="clube-do-panetone"/>
+    <file name="quindim.png" crc="176115996" seo="true" ref="clube-do-panetone"/>
+    <file name="churros.jpg" crc="49312317" seo="true" ref="clube-do-panetone"/>
+    <file name="sitedosmenes.jpg" crc="4123455696" seo="true" ref="clube-do-panetone"/>
+    <file name="aloc.jpg" crc="4182314821" seo="true" ref="clube-do-panetone"/>
+    <file name="temporal.jpg" crc="229709987" seo="true" ref="clube-do-panetone"/>
+  </folder>
+  <folder name="tablet">
+    <folder name="css">
+      <file name="clube-do-panetone.css" crc="129280444" ref="tablet>clube-do-panetone"/>
+      <file name="index.css" crc="331354917" ref="tablet>index"/>
+      <file name="iefonts_index.css" crc="4218912620" ref="tablet>index"/>
+    </folder>
+    <file name="index.html" crc="456668825" seo="true" mt="1432057062798" redirect="true"/>
+    <file name="clube-do-panetone.html" crc="164563734" seo="true" mt="1432057062840" redirect="true"/>
+  </folder>
+  <folder name="phone">
+    <folder name="css">
+      <file name="clube-do-panetone.css" crc="4287492797" ref="phone>clube-do-panetone"/>
+      <file name="index.css" crc="4190169687" ref="phone>index"/>
+      <file name="iefonts_index.css" crc="3955805263" ref="phone>index"/>
+    </folder>
+    <file name="index.html" crc="3947758208" seo="true" mt="1432057972351" redirect="true"/>
+    <file name="clube-do-panetone.html" crc="334140651" seo="true" mt="1432058254110" redirect="true"/>
+  </folder>
+  <file name="index.html" crc="444644160" seo="true" mt="1511108925462" redirect="true"/>
+  <file name="clube-do-panetone.html" crc="299629445" seo="true" mt="1511120380595" redirect="true"/>
+</manifest>
