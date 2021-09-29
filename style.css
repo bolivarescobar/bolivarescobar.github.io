@@ -106,8 +106,7 @@ footer {
     bottom: 0;
 }
   
-@media screen and (max-width: 320px) 
-    and (orientation: portrait) { 
+@media (max-width: 768px) { 
       
     #home-macro {
       position: absolute;
