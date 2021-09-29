@@ -121,7 +121,7 @@ footer {
     
     .home-bg {
       background-size: 40%;
-      background-position: 5% 10%;
+      background-position: 50% 10%;
     }
     
     .intro-text {
@@ -132,6 +132,7 @@ footer {
     padding-top: 40%;
     line-height: 1.5em;
     text-transform: uppercase;
+    text-align: center;
     }
     
     #home-menu {
