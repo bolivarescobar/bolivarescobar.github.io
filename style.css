@@ -168,7 +168,7 @@ footer {
     font-size: 4vw;
     max-width: 80%;
     margin: auto;
-    padding-top: 30%;
+    padding-top: 40%;
     line-height: 1.5em;
     text-transform: uppercase;
     text-align: center;
@@ -177,7 +177,8 @@ footer {
     #home-menu {
       width: 100%;
      }
+
     .btn-text {
-      font-size: 1.4em;
+      font-size: 1.8em;
     }
 }
