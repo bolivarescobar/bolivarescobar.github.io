@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Convenção Educacional 2026 | Pontuação</title>
+
+  <style>
+    :root{
+      --bg1:#f8fafc;
+      --bg2:#e0f2fe;
+      --panel: rgba(255,255,255,0.92);
+      --text:#0f172a;
+      --muted:#475569;
+      --accent:#0284c7;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background:
+        radial-gradient(1100px 550px at 20% 10%, rgba(56,189,248,0.35) 0%, transparent 60%),
+        linear-gradient(180deg, var(--bg2), var(--bg1));
+    }
+
+    .app{
+      width:100vw;
+      height:100vh;
+      padding:14px;
+      display:grid;
+      grid-template-rows: auto 1fr;
+      gap:14px;
+    }
+
+    header{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      min-width:0;
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(18px, 2.2vw, 26px);
+      line-height:1.15;
+    }
+    .hint{
+      margin:6px 0 0 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.04);
+      border: 1px solid rgba(15,23,42,0.12);
+      font-size: 13px;
+      color: rgba(15,23,42,0.70);
+      white-space: nowrap;
+    }
+
+    .card{
+      background: var(--panel);
+      border: 1px solid rgba(15,23,42,0.12);
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 18px 50px rgba(15,23,42,0.14);
+      backdrop-filter: blur(8px);
+      min-height:0;
+    }
+
+    .layout{
+      height:100%;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:14px;
+      min-height:0;
+    }
+
+    @media (max-width: 980px){
+      .layout{
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(320px, 1fr) auto;
+      }
+    }
+
+    .scene{
+      padding:0;
+      overflow:hidden;
+      height:100%;
+      min-height:0;
+    }
+
+    svg{
+      width:100%;
+      height:100%;
+      display:block;
+    }
+
+    .controls{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      overflow:auto;
+      min-height:0;
+    }
+
+    .controls-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      appearance:none;
+      border: 1px solid rgba(15,23,42,0.14);
+      background: rgba(255,255,255,0.75);
+      color: rgba(15,23,42,0.85);
+      padding: 8px 10px;
+      border-radius: 12px;
+      cursor:pointer;
+      font-weight:600;
+      font-size: 13px;
+    }
+    .btn:hover{
+      border-color: rgba(2,132,199,0.35);
+      box-shadow: 0 0 0 3px rgba(2,132,199,0.10);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+
+    .team-card{
+      border: 1px solid rgba(15,23,42,0.10);
+      background: rgba(255,255,255,0.75);
+      border-radius: 14px;
+      padding:10px;
+      display:grid;
+      gap:8px;
+    }
+
+    .team-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .team-name{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+    }
+
+    .dot{
+      width:12px;
+      height:12px;
+      border-radius:999px;
+      background: var(--accent);
+      flex: 0 0 auto;
+      border: 1px solid rgba(15,23,42,0.12);
+    }
+
+    .team-title{
+      font-weight:800;
+      font-size: 13px;
+      color: rgba(15,23,42,0.85);
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+
+    .team-score{
+      display:flex;
+      align-items:baseline;
+      gap:8px;
+      color: rgba(15,23,42,0.75);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .row{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    input[type="number"]{
+      width: 110px;
+      padding:9px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(15,23,42,0.16);
+      background: rgba(255,255,255,0.9);
+      color: var(--text);
+      outline:none;
+    }
+
+    input[type="range"]{
+      width: 100%;
+      accent-color: var(--accent);
+    }
+
+    .small{
+      font-size: 12px;
+      color: var(--muted);
+      line-height:1.3;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <header>
+      <div style="min-width:0">
+        <h1>Convenção Educacional 2026 | Pontuação</h1>
+        <p class="hint"></p>
+      </div>
+      <div class="badge" id="summaryBadge">🏁 13 equipes ativas</div>
+    </header>
+
+    <div class="layout">
+      <!-- CENA -->
+      <section class="card scene" aria-label="Pista de corrida horizontal">
+        <svg viewBox="0 0 1100 620" preserveAspectRatio="xMidYMid meet" role="img"
+             aria-label="Pista com 13 raias e 13 personagens avançando conforme pontuação">
+          <defs>
+            <linearGradient id="trackBg" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="rgba(15,23,42,0.05)"></stop>
+              <stop offset="100%" stop-color="rgba(15,23,42,0.02)"></stop>
+            </linearGradient>
+
+            <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity="0.18"/>
+            </filter>
+          </defs>
+
+          <!-- fundo da cena -->
+          <rect x="0" y="0" width="1100" height="620" fill="rgba(255,255,255,0.55)"></rect>
+
+          <!-- “pista” -->
+          <rect x="60" y="60" width="980" height="500" rx="18" fill="url(#trackBg)" stroke="rgba(15,23,42,0.10)" />
+
+          <!-- linha de largada / chegada -->
+          <g opacity="0.95">
+            <!-- start -->
+            <rect x="120" y="80" width="10" height="460" fill="rgba(15,23,42,0.18)"/>
+            <text x="125" y="70" text-anchor="middle" font-size="14" fill="rgba(15,23,42,0.55)">INÍCIO</text>
+
+            <!-- finish -->
+            <rect x="980" y="80" width="10" height="460" fill="rgba(15,23,42,0.18)"/>
+            <text x="985" y="70" text-anchor="middle" font-size="14" fill="rgba(15,23,42,0.55)"></text>
+          </g>
+
+          <!-- marcações leves no chão -->
+          <g opacity="0.6">
+            <!-- a cada 50 pontos (0..300) -->
+            <g id="distanceTicks"></g>
+          </g>
+
+          <!-- Raias (linhas horizontais) -->
+          <g id="lanes" opacity="0.85"></g>
+
+          <!-- Paths individuais (um por equipe) -->
+          <g id="paths" opacity="0.0"></g>
+
+          <g id="tracksDone"></g>
+
+          <!-- Corredores (13) -->
+          <g id="runners"></g>
+        </svg>
+      </section>
+
+      <!-- CONTROLES -->
+      <aside class="card controls" aria-label="Controles de pontuação por equipe">
+        <div class="controls-top">
+          <div class="badge">🎯 Intervalo: 0–300</div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="btn" id="btnZero">Zerar tudo</button>
+            <button class="btn" id="btnRandom">Aleatório</button>
+          </div>
+        </div>
+
+        <div class="small">
+          Dica: o movimento é suavizado (animação). Você pode digitar valores ou usar os sliders.
+        </div>
+
+        <div class="grid" id="teamControls"></div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    // =========================
+    // CONFIG
+    // =========================
+    const TEAMS = 13;
+    const MIN_SCORE = 0;
+    const MAX_SCORE = 300;
+    const TEAM_NAMES = [
+  "Equipe 1 - 103 M",
+  "Equipe 2 - PROJETO GOIÁS",
+  "Equipe 3 - COLÉGIO MILITAR SP",
+  "Equipe 4 - 3200 Professores Formados",
+  "Equipe 5 - ATIVA O SININHO",
+  "Equipe 6 - EDU SUPORTE",
+  "Equipe 7 - MINHA ESCOLA",
+  "Equipe 8 - PROJETOS IA",
+  "Equipe 9 - Rede de Formadores",
+  "Equipe 10 - REPLAN",
+  "Equipe 11 - TCV 18M",
+  "Equipe 12 - INVENTURA PR",
+  "Equipe 13 - MICRO:BIT SÃO PAULO"
+];
+
+    // Pista (coordenadas no SVG)
+    const X_START = 125;  // posição do path (um pouco após a linha INÍCIO)
+    const X_END   = 985;  // posição do path (em cima da linha CHEGADA)
+    const Y_TOP   = 100;
+    const Y_SPACING = 36; // espaçamento entre raias
+
+    // Cores (uma por equipe)
+    const COLORS = [
+      "#5cb1ff", "#1be746", "#ea580c", "#7c3aed", "#dc2626",
+      "#bcbcbc", "#ca8a04", "#444444", "#ff63fa", "#73410e",
+      "#ffffff", "#294acc", "#006c17"
+    ];
+
+    // =========================
+    // HELPERS
+    // =========================
+    const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
+    function scoreToProgress(score){
+      return clamp(score, MIN_SCORE, MAX_SCORE) / MAX_SCORE; // 0..1
+    }
+
+    // Gera um path “quase reto”, mas com leve ondulação diferente por equipe
+    // (mantém “trajeto individual” sem perder leitura horizontal)
+    function buildLanePathD(i){
+      const y = Y_TOP + i * Y_SPACING;
+      const amp = 6 + (i % 3) * 2;       // amplitude pequena
+      const k1 = (i % 5) * 10;
+      const k2 = (i % 7) * 8;
+
+      // Bezier em 3 segmentos
+      // começa em X_START e termina em X_END, com pequenas variações de y
+      return `
+        M ${X_START} ${y}
+        C ${X_START + 180} ${y + amp}, ${X_START + 260} ${y - amp}, ${X_START + 360} ${y + (amp/2)}
+        C ${X_START + 520} ${y + (amp/2) + (k1?1:-1)}, ${X_START + 650} ${y - (amp/2)}, ${X_START + 780} ${y + (amp/2) - (k2?1:-1)}
+        C ${X_START + 860} ${y - amp}, ${X_END - 120} ${y + amp}, ${X_END} ${y}
+      `.trim();
+    }
+
+    // Desenha um “minifigure” simples (tipo LEGO) como SVG string (sem imagens externas)
+    function minifigSVG(color){
+      // Observação: não usamos logo/marca; é um estilo “minifigure”.
+      return `
+        <g>
+          <ellipse cx="0" cy="-1" rx="14" ry="5" fill="rgba(0,0,0,0.14)"></ellipse>
+
+          <!-- corpo -->
+          <g transform="translate(0,-6)">
+            <!-- mochila -->
+            <rect x="-18" y="-32" width="36" height="22" rx="7"
+                  fill="rgba(120,53,15,0.35)" stroke="rgba(0,0,0,0.12)" stroke-width="1"/>
+
+            <!-- pernas -->
+            <rect x="-14" y="-14" width="13" height="18" rx="3"
+                  fill="rgba(30,64,175,0.55)" stroke="rgba(0,0,0,0.12)" stroke-width="1"/>
+            <rect x="1" y="-14" width="13" height="18" rx="3"
+                  fill="rgba(30,64,175,0.55)" stroke="rgba(0,0,0,0.12)" stroke-width="1"/>
+            <rect x="-14" y="2" width="13" height="4" rx="2" fill="rgba(15,23,42,0.30)"/>
+            <rect x="1" y="2" width="13" height="4" rx="2" fill="rgba(15,23,42,0.30)"/>
+
+            <!-- tronco -->
+            <rect x="-15" y="-32" width="30" height="18" rx="6"
+                  fill="${color}" stroke="rgba(0,0,0,0.12)" stroke-width="1"/>
+            <path d="M -10 -30 L -10 -15" stroke="rgba(255,255,255,0.28)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M 10 -30 L 10 -15"  stroke="rgba(255,255,255,0.28)" stroke-width="3" stroke-linecap="round"/>
+
+            <!-- braços -->
+            <g transform="translate(-19,-30) rotate(10)">
+              <rect x="-4" y="0" width="8" height="16" rx="4" fill="${color}" opacity="0.85"/>
+              <circle cx="0" cy="16" r="5" fill="rgba(246,208,77,0.92)" stroke="rgba(0,0,0,0.10)" stroke-width="1"/>
+            </g>
+            <g transform="translate(19,-30) rotate(-10)">
+              <rect x="-4" y="0" width="8" height="16" rx="4" fill="${color}" opacity="0.85"/>
+              <circle cx="0" cy="16" r="5" fill="rgba(246,208,77,0.92)" stroke="rgba(0,0,0,0.10)" stroke-width="1"/>
+            </g>
+
+            <!-- cabeça -->
+            <rect x="-12" y="-52" width="24" height="18" rx="7"
+                  fill="rgba(246,208,77,0.98)" stroke="rgba(0,0,0,0.12)" stroke-width="1"/>
+            <ellipse cx="0" cy="-54" rx="7" ry="3.6" fill="rgba(246,208,77,0.72)"/>
+            <circle cx="-5" cy="-44" r="2.1" fill="rgba(15,23,42,0.75)"/>
+            <circle cx="5"  cy="-44" r="2.1" fill="rgba(15,23,42,0.75)"/>
+            <path d="M -6 -39 C -3 -35, 3 -35, 6 -39"
+                  fill="none" stroke="rgba(15,23,42,0.68)" stroke-width="2.2" stroke-linecap="round"/>
+          </g>
+        </g>
+      `.trim();
+    }
+
+    // =========================
+    // BUILD SVG (lanes, ticks, paths, runners)
+    // =========================
+    const svg = document.querySelector("svg");
+    const lanesG = document.getElementById("lanes");
+    const ticksG = document.getElementById("distanceTicks");
+    const pathsG = document.getElementById("paths");
+    const runnersG = document.getElementById("runners");
+    const tracksDoneG = document.getElementById("tracksDone");
+
+    // Distância: ticks a cada 50 pontos (0..300) -> 7 marcas (0,50,100,150,200,250,300)
+    (function buildTicks(){
+      const tickScores = [0,50,100,150,200,250,300];
+      for(const s of tickScores){
+        const p = s / MAX_SCORE;
+        const x = X_START + (X_END - X_START) * p;
+        const y1 = 82;
+        const y2 = 560;
+        const line = document.createElementNS("http://www.w3.org/2000/svg","line");
+        line.setAttribute("x1", x);
+        line.setAttribute("x2", x);
+        line.setAttribute("y1", y1);
+        line.setAttribute("y2", y2);
+        line.setAttribute("stroke", "rgba(15,23,42,0.10)");
+        line.setAttribute("stroke-width", (s % 100 === 0) ? "2" : "1");
+        ticksG.appendChild(line);
+
+        const label = document.createElementNS("http://www.w3.org/2000/svg","text");
+        label.setAttribute("x", x);
+        label.setAttribute("y", 590);
+        label.setAttribute("text-anchor", "middle");
+        label.setAttribute("font-size", "12");
+        label.setAttribute("fill", "rgba(15,23,42,0.45)");
+        label.textContent = s;
+        ticksG.appendChild(label);
+      }
+    })();
+
+    // Raias + paths + corredores
+    const lanePaths = [];
+    const donePaths = [];
+    const doneLens = [];
+    for(let i=0;i<TEAMS;i++){
+      const y = Y_TOP + i * Y_SPACING;
+
+      // linha da raia
+      const laneLine = document.createElementNS("http://www.w3.org/2000/svg","line");
+      laneLine.setAttribute("x1", 90);
+      laneLine.setAttribute("x2", 1010);
+      laneLine.setAttribute("y1", y);
+      laneLine.setAttribute("y2", y);
+      laneLine.setAttribute("stroke", "rgba(15,23,42,0.10)");
+      laneLine.setAttribute("stroke-width", "2");
+      lanesG.appendChild(laneLine);
+
+      // número da raia
+      const laneLabel = document.createElementNS("http://www.w3.org/2000/svg","text");
+      laneLabel.setAttribute("x", 78);
+      laneLabel.setAttribute("y", y + 4);
+      laneLabel.setAttribute("text-anchor", "end");
+      laneLabel.setAttribute("font-size", "12");
+      laneLabel.setAttribute("fill", "rgba(15,23,42,0.55)");
+      laneLabel.textContent = `#${i+1}`;
+      lanesG.appendChild(laneLabel);
+
+      // path individual
+      const path = document.createElementNS("http://www.w3.org/2000/svg","path");
+      path.setAttribute("id", `lanePath${i}`);
+      path.setAttribute("d", buildLanePathD(i));
+      path.setAttribute("fill", "none");
+      path.setAttribute("stroke", "rgba(2,132,199,0.0)");
+      path.setAttribute("stroke-width", "2");
+      pathsG.appendChild(path);
+      lanePaths.push(path);
+
+      // rastro/progresso (mesma curva, com cor da equipe)
+      const done = document.createElementNS("http://www.w3.org/2000/svg","path");
+      done.setAttribute("id", `laneDone${i}`);
+      done.setAttribute("d", path.getAttribute("d"));
+      done.setAttribute("fill", "none");
+      done.setAttribute("stroke", COLORS[i % COLORS.length]);
+      done.setAttribute("stroke-width", "8");
+      done.setAttribute("stroke-linecap", "round");
+      done.setAttribute("opacity", "0.85");
+
+      // “desenha” só o trecho percorrido via dash
+      const len = path.getTotalLength();
+      done.setAttribute("stroke-dasharray", `${len}`);
+      done.setAttribute("stroke-dashoffset", `${len}`);
+
+      tracksDoneG.appendChild(done);
+      donePaths.push(done);
+      doneLens.push(len);
+
+      // runner group
+      const runner = document.createElementNS("http://www.w3.org/2000/svg","g");
+      runner.setAttribute("id", `runner${i}`);
+      runner.setAttribute("filter", "url(#softShadow)");
+      runner.innerHTML = minifigSVG(COLORS[i % COLORS.length]);
+      runnersG.appendChild(runner);
+    }
+
+    // =========================
+    // CONTROLS UI (13 inputs)
+    // =========================
+    const teamControls = document.getElementById("teamControls");
+    const btnZero = document.getElementById("btnZero");
+    const btnRandom = document.getElementById("btnRandom");
+
+    const targets = Array(TEAMS).fill(0);
+    const currents = Array(TEAMS).fill(0);
+
+    function setTeamScore(i, val){
+      const v = clamp(Math.round(Number(val)), MIN_SCORE, MAX_SCORE);
+      targets[i] = v;
+
+      // atualiza UI daquele card
+      const num = document.getElementById(`scoreNum${i}`);
+      const range = document.getElementById(`scoreRange${i}`);
+      const label = document.getElementById(`scoreLabel${i}`);
+      if(num) num.value = String(v);
+      if(range) range.value = String(v);
+      if(label) label.textContent = `${v} / ${MAX_SCORE}`;
+    }
+
+    // cria os 13 cards
+    for(let i=0;i<TEAMS;i++){
+      const card = document.createElement("div");
+      card.className = "team-card";
+
+      card.innerHTML = `
+        <div class="team-head">
+          <div class="team-name">
+            <span class="dot" style="background:${COLORS[i % COLORS.length]}"></span>
+            <div class="team-title">${TEAM_NAMES[i] ?? `Equipe ${i+1}`}</div>
+          </div>
+          <div class="team-score">
+            <span id="scoreLabel${i}">0 / ${MAX_SCORE}</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <input id="scoreNum${i}" type="number" min="${MIN_SCORE}" max="${MAX_SCORE}" step="1" value="0" />
+          <div class="small">pontos</div>
+        </div>
+
+        <input id="scoreRange${i}" type="range" min="${MIN_SCORE}" max="${MAX_SCORE}" step="1" value="0" />
+      `;
+
+      teamControls.appendChild(card);
+
+      // listeners
+      const num = card.querySelector(`#scoreNum${i}`);
+      const range = card.querySelector(`#scoreRange${i}`);
+
+      num.addEventListener("input", () => setTeamScore(i, num.value));
+      range.addEventListener("input", () => setTeamScore(i, range.value));
+    }
+
+    btnZero.addEventListener("click", () => {
+      for(let i=0;i<TEAMS;i++) setTeamScore(i, 0);
+    });
+
+    btnRandom.addEventListener("click", () => {
+      for(let i=0;i<TEAMS;i++){
+        const r = Math.floor(Math.random() * (MAX_SCORE + 1));
+        setTeamScore(i, r);
+      }
+    });
+
+    // =========================
+    // ANIMATION LOOP
+    // =========================
+    let lastT = performance.now();
+
+function updateRunner(i, score){
+  const progress = scoreToProgress(score);
+
+  const path = lanePaths[i];
+  const len = path.getTotalLength();
+  const dist = progress * len;
+
+  const p = path.getPointAtLength(dist);
+  const p2 = path.getPointAtLength(Math.min(len, dist + 1));
+  const angle = Math.atan2(p2.y - p.y, p2.x - p.x) * 180 / Math.PI;
+  const lean = clamp(angle, -18, 18);
+
+  // runner
+  const runner = document.getElementById(`runner${i}`);
+  const SCALE = 0.75;   // ajuste aqui (0.5 menor, 0.8 maior, 1.0 original)
+const Y_OFFSET = 6;   // opcional: “desce” um pouco pra grudar na raia (teste 0..10)
+
+runner.setAttribute(
+  "transform",
+  `translate(${p.x}, ${p.y + Y_OFFSET}) rotate(${lean}) scale(${SCALE})`
+);
+
+
+  // rastro (se existir)
+  const done = donePaths?.[i];
+  if(done){
+    // usa o comprimento do próprio path do rastro
+    const doneLen = doneLens?.[i] ?? done.getTotalLength();
+    done.setAttribute("stroke-dashoffset", `${doneLen * (1 - progress)}`);
+  }
+}
+
+
+    function tick(t){
+      const dt = Math.min(0.05, (t - lastT) / 1000);
+      lastT = t;
+
+      // suavização (independente do FPS)
+      const smoothing = 1 - Math.pow(0.001, dt);
+
+      for(let i=0;i<TEAMS;i++){
+        currents[i] += (targets[i] - currents[i]) * smoothing;
+        if(Math.abs(targets[i] - currents[i]) < 0.05) currents[i] = targets[i];
+        updateRunner(i, currents[i]);
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    // init
+    for(let i=0;i<TEAMS;i++){
+      setTeamScore(i, 0);
+      updateRunner(i, 0);
+    }
+    requestAnimationFrame(tick);
+  </script>
+</body>
+</html>
