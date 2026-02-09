@@ -221,6 +221,44 @@
       color: var(--muted);
       line-height:1.3;
     }
+
+    /* Botão "soltar fogos" (canto superior direito) */
+.fireworks-btn{
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 9999;
+
+  appearance: none;
+  border: 1px solid rgba(15,23,42,0.16);
+  background: rgba(255,255,255,0.82);
+  color: rgba(15,23,42,0.88);
+  padding: 10px 12px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 13px;
+  box-shadow: 0 12px 30px rgba(15,23,42,0.14);
+  backdrop-filter: blur(8px);
+}
+
+.fireworks-btn:hover{
+  border-color: rgba(2,132,199,0.35);
+  box-shadow: 0 0 0 3px rgba(2,132,199,0.12), 0 12px 30px rgba(15,23,42,0.14);
+}
+
+.fireworks-btn:active{
+  transform: translateY(1px);
+}
+
+/* Canvas dos fogos (overlay na tela toda) */
+#fireworksCanvas{
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none; /* não atrapalha cliques */
+}
+
   </style>
 </head>
 
@@ -232,6 +270,9 @@
         <p class="hint"></p>
       </div>
       <div class="badge" id="summaryBadge">🏁 13 equipes ativas</div>
+      <button class="fireworks-btn" id="btnFireworks" type="button">SOLTAR FOGOS!</button>
+      <canvas id="fireworksCanvas"></canvas>
+
     </header>
 
     <div class="layout">
@@ -648,6 +689,144 @@ runner.setAttribute(
       updateRunner(i, 0);
     }
     requestAnimationFrame(tick);
+
+    (() => {
+  const btn = document.getElementById("btnFireworks");
+  const canvas = document.getElementById("fireworksCanvas");
+  if(!btn || !canvas) return;
+
+  const ctx = canvas.getContext("2d");
+
+  function resize(){
+    const dpr = Math.max(1, window.devicePixelRatio || 1);
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  // Partículas
+  const sparks = [];
+  const bursts = [];
+  let running = false;
+  let rafId = 0;
+  let endAt = 0;
+
+  function rand(min, max){ return min + Math.random() * (max - min); }
+
+  function addBurst(x, y){
+    // “estouro”: cria várias faíscas
+    const count = Math.floor(rand(70, 120));
+    const hue = rand(0, 360);
+    for(let i=0;i<count;i++){
+      const ang = rand(0, Math.PI * 2);
+      const spd = rand(2.5, 7.5);
+      sparks.push({
+        x, y,
+        vx: Math.cos(ang) * spd,
+        vy: Math.sin(ang) * spd,
+        life: rand(0.9, 1.6),
+        age: 0,
+        hue: (hue + rand(-30, 30) + 360) % 360,
+        size: rand(1.2, 2.6)
+      });
+    }
+    // brilho central sutil
+    bursts.push({ x, y, r: 0, max: rand(40, 80), a: 0.6 });
+  }
+
+  function launchShow(durationMs = 2200){
+    // dispara várias explosões ao longo do tempo
+    const start = performance.now();
+    endAt = start + durationMs;
+
+    // agenda 8–14 explosões
+    const n = Math.floor(rand(8, 14));
+    for(let i=0;i<n;i++){
+      const t = rand(0, durationMs * 0.9);
+      setTimeout(() => {
+        const x = rand(window.innerWidth * 0.15, window.innerWidth * 0.85);
+        const y = rand(window.innerHeight * 0.12, window.innerHeight * 0.45);
+        addBurst(x, y);
+        // pequena chance de “duplo”:
+        if(Math.random() < 0.35) addBurst(x + rand(-60, 60), y + rand(-40, 40));
+        startLoop();
+      }, t);
+    }
+    startLoop();
+  }
+
+  function startLoop(){
+    if(running) return;
+    running = true;
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function tick(t){
+    // fundo com “fade” pra trilhas (sem limpar seco)
+    ctx.fillStyle = "rgba(255,255,255,0.08)";
+    ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+    // anima glow central
+    for(let i=bursts.length-1;i>=0;i--){
+      const b = bursts[i];
+      b.r += 3.2;
+      b.a *= 0.94;
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r, 0, Math.PI*2);
+      ctx.strokeStyle = `rgba(255,255,255,${b.a})`;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      if(b.r > b.max || b.a < 0.02) bursts.splice(i, 1);
+    }
+
+    // física das faíscas
+    const gravity = 0.06;
+    for(let i=sparks.length-1;i>=0;i--){
+      const p = sparks[i];
+      p.age += 1/60;
+      p.vy += gravity;
+      p.vx *= 0.99;
+      p.vy *= 0.99;
+      p.x += p.vx;
+      p.y += p.vy;
+
+      const lifeLeft = 1 - (p.age / p.life);
+      if(lifeLeft <= 0){
+        sparks.splice(i, 1);
+        continue;
+      }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+      ctx.fillStyle = `hsla(${p.hue}, 95%, 55%, ${Math.max(0, lifeLeft)})`;
+      ctx.fill();
+    }
+
+    const shouldStop = (t > endAt) && sparks.length === 0 && bursts.length === 0;
+
+    if(shouldStop){
+      running = false;
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      cancelAnimationFrame(rafId);
+      return;
+    }
+
+    rafId = requestAnimationFrame(tick);
+  }
+
+  btn.addEventListener("click", () => {
+    // limpa e dispara novo show
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    sparks.length = 0;
+    bursts.length = 0;
+    launchShow(2600);
+  });
+})();
+
   </script>
 </body>
 </html>
